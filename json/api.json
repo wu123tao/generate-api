@@ -776,7 +776,7 @@
       "post": {
         "tags": ["PC-基础管理-字典表管理"],
         "summary": "删除",
-        "operationId": "apiV1SysDictDeletePOST",
+        "operationId": "sysDictDeletePOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -806,7 +806,7 @@
       "post": {
         "tags": ["PC-基础管理-字典表管理"],
         "summary": "修改",
-        "operationId": "apiV1SysDictEditPOST",
+        "operationId": "sysDictEditPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -836,7 +836,7 @@
       "post": {
         "tags": ["PC-基础管理-字典表管理"],
         "summary": "新增（仅字典管理模块调用）",
-        "operationId": "apiV1SysDictInsertPOST",
+        "operationId": "sysDictInsertPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -866,7 +866,7 @@
       "get": {
         "tags": ["PC-基础管理-字典表管理"],
         "summary": "分页查询",
-        "operationId": "apiV1SysDictSelectGET",
+        "operationId": "sysDictSelectGET",
         "parameters": [
           {
             "name": "dictName",
@@ -970,7 +970,7 @@
       "post": {
         "tags": ["PC-基础管理-字典项管理"],
         "summary": "删除",
-        "operationId": "apiV1SysDictItemDeletePOST",
+        "operationId": "sysDictItemDeletePOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1000,7 +1000,7 @@
       "get": {
         "tags": ["PC-基础管理-字典项管理"],
         "summary": "字典项下拉",
-        "operationId": "apiV1SysDictItemDropDownGET",
+        "operationId": "sysDictItemDropDownGET",
         "parameters": [
           {
             "name": "dictKey",
@@ -1032,7 +1032,7 @@
       "post": {
         "tags": ["PC-基础管理-字典项管理"],
         "summary": "修改",
-        "operationId": "apiV1SysDictItemEditPOST",
+        "operationId": "sysDictItemEditPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1062,7 +1062,7 @@
       "get": {
         "tags": ["PC-基础管理-字典项管理"],
         "summary": "根据字典key查询字典项",
-        "operationId": "apiV1SysDictItemGetByDictKeyGET",
+        "operationId": "sysDictItemGetByDictKeyGET",
         "parameters": [
           {
             "name": "dictId",
@@ -1174,7 +1174,7 @@
       "post": {
         "tags": ["PC-基础管理-字典项管理"],
         "summary": "新增",
-        "operationId": "apiV1SysDictItemInsertPOST",
+        "operationId": "sysDictItemInsertPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1204,7 +1204,7 @@
       "get": {
         "tags": ["PC-基础管理-字典项管理"],
         "summary": "根据字典key和字典项名称查询字典项id",
-        "operationId": "apiV1SysDictItemSelectItemIdGET",
+        "operationId": "sysDictItemSelectItemIdGET",
         "parameters": [
           {
             "name": "dictKey",
@@ -1244,7 +1244,7 @@
       "get": {
         "tags": ["PC-基础管理-字典项管理"],
         "summary": "根据字典表子项id查询字典项表名称",
-        "operationId": "apiV1SysDictItemSelectItemNameGET",
+        "operationId": "sysDictItemSelectItemNameGET",
         "parameters": [
           {
             "name": "itemId",
@@ -1276,7 +1276,7 @@
       "get": {
         "tags": ["文件管理"],
         "summary": "删除",
-        "operationId": "apiDeleteFileGET",
+        "operationId": "deleteFileGET",
         "parameters": [
           {
             "name": "filePath",
@@ -1308,7 +1308,7 @@
       "get": {
         "tags": ["文件管理"],
         "summary": "下载",
-        "operationId": "apiDownloadGET",
+        "operationId": "downloadGET",
         "parameters": [
           {
             "name": "filePath",
@@ -1338,7 +1338,7 @@
       "post": {
         "tags": ["文件管理"],
         "summary": "上传",
-        "operationId": "apiUploadPOST",
+        "operationId": "uploadPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1371,7 +1371,7 @@
       "post": {
         "tags": ["文件管理"],
         "summary": "上传文件(图片base64)",
-        "operationId": "apiUploadBase64POST",
+        "operationId": "uploadBase64POST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1403,7 +1403,7 @@
       "post": {
         "tags": ["文件管理"],
         "summary": "多文件上传",
-        "operationId": "apiUploadManyPOST",
+        "operationId": "uploadManyPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1481,7 +1481,7 @@
         "tags": ["PC-基础管理-权限管理"],
         "summary": "授权",
         "description": "给角色授权",
-        "operationId": "apiV1UserPermissionEmpowerPOST",
+        "operationId": "userPermissionEmpowerPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1512,7 +1512,7 @@
         "tags": ["PC-基础管理-权限管理"],
         "summary": "app授权",
         "description": "给角色授权",
-        "operationId": "apiV1UserPermissionEmpowerAppPOST",
+        "operationId": "userPermissionEmpowerAppPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1543,7 +1543,7 @@
         "tags": ["PC-基础管理-权限管理"],
         "summary": "pc授权",
         "description": "给角色授权",
-        "operationId": "apiV1UserPermissionEmpowerPCPOST",
+        "operationId": "userPermissionEmpowerPCPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1574,7 +1574,7 @@
         "tags": ["PC-基础管理-权限管理"],
         "summary": "权限查询",
         "description": "根据角色ID获取权限详情",
-        "operationId": "apiV1UserPermissionListGET",
+        "operationId": "userPermissionListGET",
         "parameters": [
           {
             "name": "roleId",
@@ -1614,7 +1614,7 @@
       "post": {
         "tags": ["PC-基础管理-角色管理"],
         "summary": "删除",
-        "operationId": "apiV1UserRoleDeletePOST",
+        "operationId": "userRoleDeletePOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1644,7 +1644,7 @@
       "post": {
         "tags": ["PC-基础管理-角色管理"],
         "summary": "新增/修改",
-        "operationId": "apiV1UserRoleEditPOST",
+        "operationId": "userRoleEditPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1674,7 +1674,7 @@
       "get": {
         "tags": ["PC-基础管理-角色管理"],
         "summary": "分页查询",
-        "operationId": "apiV1UserRoleSelectGET",
+        "operationId": "userRoleSelectGET",
         "parameters": [
           {
             "name": "endDateTime",
@@ -1770,7 +1770,7 @@
       "post": {
         "tags": ["基础管理-用户管理"],
         "summary": "修改密码",
-        "operationId": "apiV1UserManageChangePasswordPOST",
+        "operationId": "userManageChangePasswordPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1800,7 +1800,7 @@
       "post": {
         "tags": ["基础管理-用户管理"],
         "summary": "删除",
-        "operationId": "apiV1UserManageDeletePOST",
+        "operationId": "userManageDeletePOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1830,7 +1830,7 @@
       "post": {
         "tags": ["基础管理-用户管理"],
         "summary": "新增/修改",
-        "operationId": "apiV1UserManageEditPOST",
+        "operationId": "userManageEditPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1860,7 +1860,7 @@
       "get": {
         "tags": ["基础管理-用户管理"],
         "summary": "根据token获取用户信息",
-        "operationId": "apiV1UserManageGetUserInfoByTokenGET",
+        "operationId": "userManageGetUserInfoByTokenGET",
         "responses": {
           "200": {
             "description": "OK",
@@ -1882,7 +1882,7 @@
       "get": {
         "tags": ["基础管理-用户管理"],
         "summary": "操作人信息下拉",
-        "operationId": "apiV1UserManageListOperatorGET",
+        "operationId": "userManageListOperatorGET",
         "parameters": [
           {
             "name": "transferPhase",
@@ -1922,7 +1922,7 @@
       "post": {
         "tags": ["基础管理-用户管理"],
         "summary": "登录",
-        "operationId": "apiV1UserManageLoginPOST",
+        "operationId": "userManageLoginPOST",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1952,7 +1952,7 @@
       "get": {
         "tags": ["基础管理-用户管理"],
         "summary": "退出登录",
-        "operationId": "apiV1UserManageLogoutGET",
+        "operationId": "userManageLogoutGET",
         "responses": {
           "200": {
             "description": "OK",
@@ -1974,7 +1974,7 @@
       "get": {
         "tags": ["基础管理-用户管理"],
         "summary": "分页查询",
-        "operationId": "apiV1UserManageSelectGET",
+        "operationId": "userManageSelectGET",
         "parameters": [
           {
             "name": "endDateTime",

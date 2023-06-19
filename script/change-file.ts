@@ -12,15 +12,21 @@ async function writeAPI() {
     const apiObj = JSON.parse(res2);
 
     for (const key in apiObj.paths) {
-      const path = key.split("/").map((item: string, i: number) => {
-        if(item&&i>1){
+      const funName = key
+        .split("/")
+        .filter((item) => item && item !== "api" && item !== "v1")
+        .map((item, index) => {
+          if (index === 0) {
+            return item;
+          } else {
             return `${item[0].toUpperCase()}${item.slice(1)}`;
-        }        
-        return item;
-      }).join('');
+          }
+        })
+        .join("");
+
       const method = Object.keys(apiObj.paths[key])[0];
 
-      apiObj.paths[key][method].operationId = `${path}${method.toUpperCase()}`;
+      apiObj.paths[key][method].operationId = `${funName}${method.toUpperCase()}`;
     }
 
     writeFileSync("./json/api.json", JSON.stringify(apiObj));

@@ -119,6 +119,10 @@ npx openapi-generator-cli generate -c ./openapitools.json --generator-key v2.0
 
 
 
+忽略某些文件的自动生成(对第一次生成最有用)
+
+在生成代码的根目录下创建 `.openapi-generator-ignore` 文件，用法和 `.gitignore` 文件一样。然后再运行脚本。
+
 
 
 ## 3.mustache模版语法

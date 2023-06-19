@@ -40,7 +40,7 @@ var fs_1 = require("fs");
 var axios_1 = require("axios");
 function writeAPI() {
     return __awaiter(this, void 0, void 0, function () {
-        var res, res2, apiObj, key, path, method, error_1;
+        var res, res2, apiObj, key, funName, method, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -51,15 +51,21 @@ function writeAPI() {
                     res2 = JSON.stringify(res.data).replace(/\«|»|\s+/g, "_");
                     apiObj = JSON.parse(res2);
                     for (key in apiObj.paths) {
-                        path = key.split("/").map(function (item, i) {
-                            if (item && i > 1) {
+                        funName = key
+                            .split("/")
+                            .filter(function (item) { return item && item !== "api" && item !== "v1"; })
+                            .map(function (item, index) {
+                            if (index === 0) {
+                                return item;
+                            }
+                            else {
                                 return "".concat(item[0].toUpperCase()).concat(item.slice(1));
                             }
-                            return item;
-                        }).join('');
+                        })
+                            .join("");
+                        console.log(funName);
                         method = Object.keys(apiObj.paths[key])[0];
-                        console.log(path);
-                        apiObj.paths[key][method].operationId = "".concat(path).concat(method.toUpperCase());
+                        apiObj.paths[key][method].operationId = "".concat(funName).concat(method.toUpperCase());
                     }
                     (0, fs_1.writeFileSync)("./json/api.json", JSON.stringify(apiObj));
                     return [3 /*break*/, 3];
