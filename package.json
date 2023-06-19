@@ -1,0 +1,24 @@
+{
+    "name": "generate-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "tsc ./script/change-file.ts && node ./script/change-file.js && npx prettier ./json/api.json --write",
+        "generate": "npx openapi-generator-cli generate -i ./json/api.json -g typescript-axios -o ./api/",
+        "generator": "npx openapi-generator-cli generate -i ./json/api.json -g typescript-axios -p=withSeparateModelsAndApi=true,supportsES6=true,apiPackage=api,modelPackage=interface  -o ./api/",
+        "generator1": "npx openapi-generator data ./json/api.json",
+        "generator2": "npx openapi-generator-cli generate -c ./openapitools.json --generator-key v2.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.3.5"
+    },
+    "devDependencies": {
+        "@openapitools/openapi-generator-cli": "^2.6.0",
+        "@types/node": "^18.15.11",
+        "prettier": "^2.8.7"
+    }
+}
