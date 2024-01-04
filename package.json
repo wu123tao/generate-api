@@ -8,7 +8,8 @@
         "generate": "npx openapi-generator-cli generate -i ./json/api.json -g typescript-axios -o ./api/",
         "generator": "npx openapi-generator-cli generate -i ./json/api.json -g typescript-axios -p=withSeparateModelsAndApi=true,supportsES6=true,apiPackage=api,modelPackage=interface  -o ./api/",
         "generator1": "npx openapi-generator data ./json/api.json",
-        "generator2": "npx openapi-generator-cli generate -c ./openapitools.json --generator-key v2.0"
+        "generator2": "npx openapi-generator-cli generate -c ./openapitools.json --generator-key v2.0",
+        "generate-api": "pnpm test && pnpm generator2"
     },
     "keywords": [],
     "author": "",

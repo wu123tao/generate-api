@@ -49,6 +49,10 @@ async function writeAPI() {
       apiObj.paths[key][method].operationId = `${funName}${method.toUpperCase()}`;
     }
 
+    if(!existsSync('./json')){
+      mkdirSync('./json')
+    }
+
     writeFileSync("./json/api.json", JSON.stringify(apiObj));
   } catch (error) {
     console.log("出错了");

@@ -38,7 +38,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var fs_1 = require("fs");
 var axios_1 = require("axios");
-// import apiConfig from '../openapitools.json';
 function writeAPI() {
     return __awaiter(this, void 0, void 0, function () {
         var res, res2, apiObj, key, funName, method, error_1;
@@ -75,6 +74,9 @@ function writeAPI() {
                             .join("");
                         method = Object.keys(apiObj.paths[key])[0];
                         apiObj.paths[key][method].operationId = "".concat(funName).concat(method.toUpperCase());
+                    }
+                    if (!(0, fs_1.existsSync)('./json')) {
+                        (0, fs_1.mkdirSync)('./json');
                     }
                     (0, fs_1.writeFileSync)("./json/api.json", JSON.stringify(apiObj));
                     return [3 /*break*/, 4];
