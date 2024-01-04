@@ -38,15 +38,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var fs_1 = require("fs");
 var axios_1 = require("axios");
+// import apiConfig from '../openapitools.json';
 function writeAPI() {
     return __awaiter(this, void 0, void 0, function () {
         var res, res2, apiObj, key, funName, method, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios_1["default"].get("http://192.168.3.48:8088/v3/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1")];
+                    if ((0, fs_1.existsSync)('./api') && !(0, fs_1.existsSync)('./api/.openapi-generator-ignore')) {
+                        (0, fs_1.writeFileSync)('./api/.openapi-generator-ignore', "\n      common.ts\n      configuration.ts\n      git_push.sh\n      .npmignore\n      .gitignore\n    ");
+                    }
+                    if (!(0, fs_1.existsSync)('./api') && !(0, fs_1.existsSync)('./api/.openapi-generator-ignore')) {
+                        (0, fs_1.mkdirSync)('./api');
+                        (0, fs_1.writeFileSync)('./api/.openapi-generator-ignore', "\n      common.ts\n      configuration.ts\n      git_push.sh\n      .npmignore\n      .gitignore\n    ");
+                    }
+                    _a.label = 1;
                 case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios_1["default"].get("http://192.168.3.77:8887/v3/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1")];
+                case 2:
                     res = _a.sent();
                     res2 = JSON.stringify(res.data).replace(/\«|»|\s+/g, "_");
                     apiObj = JSON.parse(res2);
@@ -63,17 +73,16 @@ function writeAPI() {
                             }
                         })
                             .join("");
-                        console.log(funName);
                         method = Object.keys(apiObj.paths[key])[0];
                         apiObj.paths[key][method].operationId = "".concat(funName).concat(method.toUpperCase());
                     }
                     (0, fs_1.writeFileSync)("./json/api.json", JSON.stringify(apiObj));
-                    return [3 /*break*/, 3];
-                case 2:
+                    return [3 /*break*/, 4];
+                case 3:
                     error_1 = _a.sent();
                     console.log("出错了");
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });

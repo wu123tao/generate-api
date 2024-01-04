@@ -1,10 +1,30 @@
-import { writeFileSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import axios from "axios";
 
 async function writeAPI() {
+  if(existsSync('./api')&&!existsSync('./api/.openapi-generator-ignore')){
+    writeFileSync('./api/.openapi-generator-ignore', `
+      common.ts
+      configuration.ts
+      git_push.sh
+      .npmignore
+      .gitignore
+    `)
+  }
+  if(!existsSync('./api')&&!existsSync('./api/.openapi-generator-ignore')){
+    mkdirSync('./api')
+    writeFileSync('./api/.openapi-generator-ignore', `
+      common.ts
+      configuration.ts
+      git_push.sh
+      .npmignore
+      .gitignore
+    `)
+  }
+
   try {
     const res = await axios.get(
-      "http://192.168.3.48:8088/v3/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1"
+      "http://192.168.3.77:8887/v3/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1"
     );
 
     const res2 = JSON.stringify(res.data).replace(/\«|»|\s+/g, "_");
